@@ -3,134 +3,1268 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Product overview for Ampersend: DeFi Risk Monitor, custom multi-chain subgraphs and x402 paid API exploration." />
-  <title>DeFi Risk Infrastructure · Product Overview</title>
+  <meta name="description" content="Product showcase for Ampersend: DeFi Risk Monitor, custom multi-chain subgraphs and x402 paid API access." />
+  <title>DeFi Risk Infrastructure | Product Showcase</title>
   <style>
-    :root{
-      --bg:#050611;--bg2:#090d1f;--panel:rgba(11,16,36,.70);--panel2:rgba(16,22,48,.86);
-      --line:rgba(142,155,255,.20);--line2:rgba(62,231,255,.24);--text:#eef4ff;--muted:#99a8c8;--faint:#5d6a8f;
-      --cyan:#42e8ff;--blue:#6b7cff;--violet:#9b5cff;--pink:#ff4fd8;--green:#48ffb1;--amber:#ffcc66;--red:#ff4e68;
-      --shadow:0 32px 120px rgba(0,0,0,.56);--radius:28px;--max:1180px;--ease:cubic-bezier(.2,.8,.2,1)
+    :root {
+      --bg: #050611;
+      --bg2: #090d1f;
+      --panel: rgba(11, 16, 36, 0.68);
+      --panel2: rgba(16, 22, 48, 0.82);
+      --line: rgba(142, 155, 255, 0.18);
+      --text: #eef4ff;
+      --muted: #97a4c4;
+      --faint: #5a6689;
+      --cyan: #3ee7ff;
+      --blue: #6b7cff;
+      --violet: #9b5cff;
+      --pink: #ff4fd8;
+      --green: #48ffb1;
+      --amber: #ffcc66;
+      --red: #ff4e68;
+      --shadow: 0 30px 120px rgba(0, 0, 0, 0.55);
+      --radius: 28px;
+      --ease: cubic-bezier(.2,.8,.2,1);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 8%,rgba(107,124,255,.22),transparent 30%),radial-gradient(circle at 80% 12%,rgba(255,79,216,.16),transparent 28%),radial-gradient(circle at 50% 95%,rgba(62,231,255,.13),transparent 32%),linear-gradient(180deg,#04050e 0%,#071024 46%,#050611 100%);overflow-x:hidden}
-    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at center,black 0%,transparent 78%);opacity:.55;z-index:0}
-    body::after{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent,rgba(62,231,255,.06),transparent,rgba(155,92,255,.05),transparent);background-size:240% 240%;animation:aurora 14s linear infinite;z-index:0}@keyframes aurora{0%{background-position:0% 50%}100%{background-position:240% 50%}}
-    #particles{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.58}.progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));box-shadow:0 0 22px rgba(62,231,255,.8);z-index:100}.site{position:relative;z-index:2}.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 32px));padding:10px 12px;border:1px solid rgba(255,255,255,.12);background:rgba(5,8,20,.64);backdrop-filter:blur(18px);border-radius:999px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 14px 60px rgba(0,0,0,.34);z-index:80}.brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.logo{width:30px;height:30px;border-radius:50%;background:conic-gradient(from 180deg,var(--cyan),var(--violet),var(--pink),var(--cyan));box-shadow:0 0 24px rgba(62,231,255,.45);position:relative}.logo::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#070b19}.navlinks{display:flex;align-items:center;gap:4px}.navlinks a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:700;padding:9px 12px;border-radius:999px;transition:.25s var(--ease)}.navlinks a:hover{color:var(--text);background:rgba(255,255,255,.07)}.hero{width:min(var(--max),calc(100% - 36px));margin:0 auto;padding:144px 0 78px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(62,231,255,.22);background:rgba(62,231,255,.08);color:var(--cyan);border-radius:999px;padding:8px 12px;font-weight:900;font-size:12px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 0 26px rgba(62,231,255,.13)}.pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green);animation:pulse 1.6s infinite}@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.45}}h1{margin:24px 0 20px;font-size:clamp(46px,7vw,86px);line-height:.96;letter-spacing:-.07em}.gradient-text{background:linear-gradient(100deg,#fff,var(--cyan) 34%,var(--violet) 72%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(18px,2.1vw,24px);line-height:1.62;color:var(--muted);max-width:720px;margin:0 0 30px}.hero-actions,.card-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);color:var(--text);text-decoration:none;font-weight:900;border-radius:999px;padding:13px 18px;box-shadow:0 12px 36px rgba(0,0,0,.18);transition:.25s var(--ease);cursor:pointer}.btn:hover{transform:translateY(-3px);border-color:rgba(62,231,255,.45);box-shadow:0 18px 58px rgba(62,231,255,.16)}.btn.primary{background:linear-gradient(135deg,var(--cyan),var(--blue),var(--violet));color:#fff;border:0}.btn.warn{background:linear-gradient(135deg,rgba(255,204,102,.24),rgba(255,79,216,.14));border-color:rgba(255,204,102,.34)}.hero-panel{position:relative;min-height:580px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border-radius:34px;box-shadow:var(--shadow);overflow:hidden;backdrop-filter:blur(18px)}.hero-panel::before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 30% 20%,rgba(62,231,255,.22),transparent 30%),radial-gradient(circle at 78% 68%,rgba(255,79,216,.20),transparent 34%);opacity:.8}.terminal{position:absolute;inset:28px;display:grid;grid-template-rows:auto 1fr;gap:18px}.terminal-bar{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.lights{display:flex;gap:8px}.lights span{width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 14px currentColor}.lights span:nth-child(2){background:var(--amber)}.lights span:nth-child(3){background:var(--green)}.holo-stack{position:relative;border:1px solid rgba(62,231,255,.16);border-radius:24px;background:rgba(3,8,22,.54);overflow:hidden;padding:22px;display:grid;gap:16px}.holo-stack::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(62,231,255,.06),transparent);animation:scan 3.8s linear infinite}@keyframes scan{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}.node-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative;z-index:1}.chain-node{height:92px;border-radius:18px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.045);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;animation:float 5s ease-in-out infinite}.chain-node:nth-child(1){color:var(--cyan)}.chain-node:nth-child(2){color:var(--violet);animation-delay:.3s}.chain-node:nth-child(3){color:var(--green);animation-delay:.6s}.chain-node:nth-child(4){color:var(--amber);animation-delay:.9s}.chain-node:nth-child(5){color:var(--pink);animation-delay:1.2s}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}.risk-gauge{position:relative;z-index:1;display:grid;grid-template-columns:170px 1fr;gap:22px;align-items:center;margin-top:12px}.gauge{width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--red) 0 18%,var(--amber) 18% 45%,var(--green) 45% 75%,rgba(255,255,255,.08) 75% 100%);display:grid;place-items:center;box-shadow:0 0 44px rgba(72,255,177,.12)}.gauge::before{content:"DRI";width:126px;height:126px;border-radius:50%;display:grid;place-items:center;background:#060a18;border:1px solid rgba(255,255,255,.10);font-size:28px;font-weight:950;letter-spacing:.06em;color:var(--text)}.bars{display:grid;gap:10px}.bar{height:12px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--violet));width:20%;animation:barFill 3.2s ease-in-out infinite}.bar:nth-child(2) span{width:44%;background:linear-gradient(90deg,var(--green),var(--cyan));animation-delay:.3s}.bar:nth-child(3) span{width:72%;background:linear-gradient(90deg,var(--amber),var(--red));animation-delay:.5s}@keyframes barFill{0%,100%{filter:saturate(1);transform:scaleX(.96);transform-origin:left}50%{filter:saturate(1.6);transform:scaleX(1)}}section{width:min(var(--max),calc(100% - 36px));margin:0 auto 86px}.section-head{display:flex;justify-content:space-between;gap:22px;align-items:end;margin-bottom:24px}.kicker{color:var(--cyan);font-size:12px;font-weight:950;letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}h2{font-size:clamp(32px,4.2vw,58px);line-height:1.05;letter-spacing:-.045em;margin:0}.section-head p{max-width:520px;color:var(--muted);font-size:17px;line-height:1.6;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid.two{grid-template-columns:repeat(2,1fr)}.card{position:relative;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));border-radius:var(--radius);padding:26px;box-shadow:0 18px 70px rgba(0,0,0,.23);overflow:hidden;transition:.3s var(--ease);backdrop-filter:blur(14px)}.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;background:radial-gradient(circle at 20% 0%,rgba(62,231,255,.18),transparent 36%);opacity:0;transition:.3s var(--ease);pointer-events:none}.card:hover{transform:translateY(-8px);border-color:rgba(62,231,255,.28)}.card:hover::before{opacity:1}.card>*{position:relative;z-index:1}.icon{width:48px;height:48px;border-radius:16px;background:rgba(62,231,255,.09);border:1px solid rgba(62,231,255,.25);display:grid;place-items:center;font-size:23px;margin-bottom:18px}.card h3{font-size:24px;letter-spacing:-.025em;margin:0 0 10px}.card p{color:var(--muted);line-height:1.65;margin:0 0 18px}.card ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}.card li{color:var(--muted);line-height:1.45;display:flex;gap:10px}.card li::before{content:"✦";color:var(--cyan);font-size:13px;margin-top:2px}.pill-row{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.pill{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.06);color:var(--muted);font-size:12px;font-weight:850;border-radius:999px;padding:8px 11px}.link-card{display:flex;justify-content:space-between;gap:20px;align-items:center;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.045);border-radius:22px;padding:18px;transition:.25s var(--ease)}.link-card:hover{background:rgba(255,255,255,.07);border-color:rgba(62,231,255,.26);transform:translateX(4px)}.link-card strong{display:block;margin-bottom:5px}.link-card small{color:var(--muted);line-height:1.5}.mini-btn{white-space:nowrap;border:1px solid rgba(62,231,255,.28);background:rgba(62,231,255,.08);color:var(--cyan);border-radius:999px;padding:10px 12px;font-size:12px;font-weight:900}.links-grid{display:grid;gap:12px}.architecture{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;align-items:stretch}.flow-card{position:relative;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:24px;padding:22px;min-height:220px;overflow:hidden}.flow-card::after{content:"";position:absolute;top:50%;right:-20px;width:40px;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);box-shadow:0 0 14px var(--cyan)}.flow-card:last-child::after{display:none}.flow-num{color:var(--cyan);font-size:13px;font-weight:950;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}.flow-card h3{font-size:22px;margin:0 0 10px}.flow-card p{color:var(--muted);line-height:1.6;margin:0}.subgraph-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.subgraph{min-height:190px;border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));position:relative;overflow:hidden}.subgraph::before{content:"";position:absolute;inset:auto 18px 18px 18px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));opacity:.62}.subgraph h3{margin:0 0 10px;font-size:18px}.subgraph p{margin:0;color:var(--muted);line-height:1.5;font-size:14px}.badge{display:inline-flex;gap:6px;align-items:center;border:1px solid rgba(72,255,177,.24);background:rgba(72,255,177,.08);color:var(--green);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;margin-bottom:13px}.ampersend-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}.codebox{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;border:1px solid rgba(62,231,255,.18);background:rgba(0,0,0,.22);border-radius:24px;padding:22px;color:#d9faff;overflow:auto;line-height:1.65;font-size:13px;min-height:330px}.codebox .dim{color:#7483a6}.codebox .cyan{color:var(--cyan)}.codebox .green{color:var(--green)}.codebox .amber{color:var(--amber)}.copybox{display:flex;gap:12px;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:22px;padding:18px;margin-top:18px}.copybox p{margin:0;color:var(--muted);line-height:1.5}.footer{width:min(var(--max),calc(100% - 36px));margin:0 auto;padding:40px 0 70px;color:var(--muted);border-top:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;gap:20px}.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.show{opacity:1;transform:none}@media(max-width:980px){.navlinks{display:none}.hero,.ampersend-panel{grid-template-columns:1fr}.hero-panel{min-height:480px}.grid,.grid.two,.architecture{grid-template-columns:1fr}.subgraph-grid{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:14px}.footer{display:block}.risk-gauge{grid-template-columns:1fr}.gauge{margin:auto}}@media(max-width:580px){.hero{padding-top:118px}.node-grid{grid-template-columns:repeat(2,1fr)}.subgraph-grid{grid-template-columns:1fr}.terminal{inset:16px}.card{padding:21px}.link-card{display:block}.mini-btn{display:inline-flex;margin-top:12px}.copybox{display:block}.copybox .btn{margin-top:12px}}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 8%, rgba(107, 124, 255, .22), transparent 30%),
+        radial-gradient(circle at 80% 12%, rgba(255, 79, 216, .16), transparent 28%),
+        radial-gradient(circle at 50% 95%, rgba(62, 231, 255, .13), transparent 32%),
+        linear-gradient(180deg, #04050e 0%, #071024 46%, #050611 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+      opacity: .55;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent, rgba(62,231,255,.06), transparent, rgba(155,92,255,.05), transparent);
+      background-size: 240% 240%;
+      animation: aurora 14s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes aurora {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 240% 50%; }
+    }
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .58;
+    }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      box-shadow: 0 0 22px rgba(62,231,255,.8);
+      z-index: 100;
+    }
+
+    .site { position: relative; z-index: 2; }
+
+    .nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1180px, calc(100vw - 32px));
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(5, 7, 18, .72);
+      box-shadow: 0 18px 60px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 13px;
+      background: conic-gradient(from 220deg, var(--cyan), var(--violet), var(--pink), var(--cyan));
+      position: relative;
+      box-shadow: 0 0 32px rgba(62,231,255,.3);
+      animation: spinGlow 7s linear infinite;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 9px;
+      background: var(--bg);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+
+    @keyframes spinGlow { to { filter: hue-rotate(360deg); } }
+
+    .nav-links { display: flex; gap: 8px; align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: all .22s var(--ease);
+    }
+    .nav-links a:hover {
+      color: white;
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(62,231,255,.28);
+      color: #c7fbff;
+      background: rgba(62,231,255,.08);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .02em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(.72); opacity: .5; }
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 24px 80px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .hero-wrap {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #bfefff;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      margin-bottom: 22px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan));
+      box-shadow: 0 0 18px var(--cyan);
+    }
+
+    h1 {
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: .9;
+      letter-spacing: -.085em;
+      margin: 0 0 24px;
+      text-wrap: balance;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, #fff 0%, #baf6ff 28%, #a78bff 56%, #ff7ce7 88%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 28px rgba(107,124,255,.22));
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.65;
+      max-width: 680px;
+      margin: 0 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 34px 0;
+    }
+
+    .btn {
+      border: 0;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 14px 19px;
+      border-radius: 16px;
+      font-weight: 820;
+      color: white;
+      background: linear-gradient(135deg, rgba(62,231,255,.95), rgba(107,124,255,.95) 45%, rgba(255,79,216,.9));
+      box-shadow: 0 18px 48px rgba(107,124,255,.35), inset 0 1px 0 rgba(255,255,255,.32);
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 24px 70px rgba(107,124,255,.48); }
+    .btn.secondary {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: #dfe8ff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .mini-stack { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .mini-stack span {
+      color: #c8d4f4;
+      font-size: 12px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.055);
+      border-radius: 999px;
+      padding: 8px 10px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      perspective: 1400px;
+    }
+
+    .orbital {
+      position: absolute;
+      inset: -22px;
+      border-radius: 44px;
+      background: radial-gradient(circle at 50% 45%, rgba(62,231,255,.18), transparent 45%);
+      filter: blur(8px);
+      animation: breathe 5s ease-in-out infinite;
+    }
+    @keyframes breathe { 50% { transform: scale(1.04); opacity: .78; } }
+
+    .hero-card {
+      position: absolute;
+      inset: 20px 0 0 20px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(62,231,255,.22), transparent 28%),
+        radial-gradient(circle at 70% 35%, rgba(255,79,216,.18), transparent 32%),
+        linear-gradient(135deg, rgba(8,12,28,.92), rgba(15,20,48,.72));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.12);
+      transform: rotateY(-10deg) rotateX(7deg);
+      transform-style: preserve-3d;
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: rotateY(-10deg) rotateX(7deg) translateY(0); }
+      50% { transform: rotateY(-6deg) rotateX(5deg) translateY(-16px); }
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: .85;
+      mask-image: radial-gradient(circle at 50% 48%, black, transparent 78%);
+    }
+
+    .orbit-system {
+      position: absolute;
+      inset: 52px 42px 112px;
+      display: grid;
+      place-items: center;
+    }
+
+    .core {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,.9), rgba(62,231,255,.7) 18%, rgba(107,124,255,.22) 44%, transparent 68%),
+        linear-gradient(135deg, rgba(62,231,255,.35), rgba(255,79,216,.18));
+      box-shadow: 0 0 80px rgba(62,231,255,.42), inset 0 0 48px rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+      position: relative;
+      animation: corePulse 3s ease-in-out infinite;
+    }
+
+    .core::after {
+      content: "API";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 33px;
+      letter-spacing: -.06em;
+      font-weight: 950;
+      color: #f6ffff;
+      text-shadow: 0 0 28px rgba(62,231,255,.9);
+    }
+
+    @keyframes corePulse {
+      50% { transform: scale(1.05); filter: hue-rotate(42deg); }
+    }
+
+    .ring {
+      position: absolute;
+      border: 1px solid rgba(62,231,255,.23);
+      border-radius: 50%;
+      animation: orbitSpin 16s linear infinite;
+    }
+    .ring.r1 { width: 320px; height: 320px; }
+    .ring.r2 { width: 420px; height: 220px; transform: rotate(21deg); animation-duration: 22s; border-color: rgba(155,92,255,.26); }
+    .ring.r3 { width: 260px; height: 430px; transform: rotate(-36deg); animation-duration: 18s; border-color: rgba(255,79,216,.18); }
+    @keyframes orbitSpin { to { rotate: 360deg; } }
+
+    .satellite {
+      position: absolute;
+      width: 82px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: #eafcff;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 32px rgba(0,0,0,.3), 0 0 26px rgba(62,231,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .s1 { top: 22px; left: 40px; }
+    .s2 { top: 78px; right: 28px; }
+    .s3 { bottom: 76px; left: 14px; }
+    .s4 { bottom: 38px; right: 74px; }
+    .s5 { top: 52%; right: 6px; }
+
+    .hud {
+      position: absolute;
+      left: 0;
+      bottom: 38px;
+      width: min(470px, 88%);
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid rgba(62,231,255,.22);
+      background: rgba(4, 9, 22, .76);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 90px rgba(0,0,0,.58), inset 0 1px 0 rgba(255,255,255,.1);
+    }
+
+    .hud-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; margin-bottom: 18px; }
+    .bars { display: grid; gap: 10px; }
+    .bar { display: grid; grid-template-columns: 108px 1fr 44px; gap: 12px; align-items: center; color: var(--muted); font-size: 12px; }
+    .track { height: 8px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
+    .fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink)); box-shadow: 0 0 22px rgba(62,231,255,.55); transform-origin: left; animation: loadBar 2.2s var(--ease) both; }
+    .bar:nth-child(2) .fill { animation-delay: .22s; }
+    .bar:nth-child(3) .fill { animation-delay: .44s; }
+    @keyframes loadBar { from { transform: scaleX(0); } to { transform: scaleX(var(--w)); } }
+
+    .section { padding: 92px 24px; }
+    .container { width: min(1180px, 100%); margin: 0 auto; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .kicker {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: .96;
+      letter-spacing: -.06em;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .section-head p { color: var(--muted); line-height: 1.7; font-size: 16px; margin: 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .product-card, .glass {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.072), rgba(255,255,255,.035));
+      box-shadow: 0 24px 80px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.1);
+      overflow: hidden;
+      transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+    }
+
+    .product-card:hover, .glass:hover {
+      transform: translateY(-8px);
+      border-color: rgba(62,231,255,.35);
+      box-shadow: 0 36px 110px rgba(0,0,0,.44), 0 0 60px rgba(62,231,255,.08), inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
+    .product-card::before, .glass::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 0%), rgba(62,231,255,.18), transparent 38%);
+      opacity: 0;
+      transition: opacity .25s var(--ease);
+      pointer-events: none;
+    }
+    .product-card:hover::before, .glass:hover::before { opacity: 1; }
+
+    .product-visual {
+      height: 180px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      position: relative;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(62,231,255,.18), transparent 35%),
+        radial-gradient(circle at 78% 22%, rgba(255,79,216,.12), transparent 35%),
+        linear-gradient(135deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+    }
+
+    .product-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .62;
+      transform: perspective(600px) rotateX(42deg) translateY(-26px);
+      transform-origin: top;
+    }
+
+    .pulse-lines {
+      position: absolute;
+      inset: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(62,231,255,.18);
+      overflow: hidden;
+    }
+    .pulse-lines span {
+      position: absolute;
+      left: -20%;
+      width: 140%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(62,231,255,.9), rgba(255,79,216,.55), transparent);
+      box-shadow: 0 0 22px rgba(62,231,255,.55);
+      animation: scanLine 3.4s linear infinite;
+    }
+    .pulse-lines span:nth-child(1) { top: 28%; }
+    .pulse-lines span:nth-child(2) { top: 50%; animation-delay: .75s; }
+    .pulse-lines span:nth-child(3) { top: 72%; animation-delay: 1.4s; }
+
+    @keyframes scanLine {
+      0% { transform: translateX(-30%) scaleX(.4); opacity: 0; }
+      18% { opacity: 1; }
+      100% { transform: translateX(30%) scaleX(1); opacity: .2; }
+    }
+
+    .visual-code {
+      position: absolute;
+      inset: 32px 26px;
+      display: grid;
+      gap: 9px;
+      align-content: center;
+    }
+    .visual-code i {
+      display: block;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(62,231,255,.8), rgba(155,92,255,.55), transparent);
+      box-shadow: 0 0 18px rgba(62,231,255,.2);
+      animation: codeBlink 2.8s ease-in-out infinite;
+    }
+    .visual-code i:nth-child(1) { width: 78%; }
+    .visual-code i:nth-child(2) { width: 56%; animation-delay: .25s; }
+    .visual-code i:nth-child(3) { width: 88%; animation-delay: .5s; }
+    .visual-code i:nth-child(4) { width: 42%; animation-delay: .75s; }
+
+    @keyframes codeBlink {
+      50% { opacity: .46; transform: translateX(10px); }
+    }
+
+    .visual-nodes {
+      position: absolute;
+      inset: 18px;
+    }
+
+    .visual-nodes span {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 28px rgba(62,231,255,.9);
+      animation: nodePop 2.7s ease-in-out infinite;
+    }
+    .visual-nodes span:nth-child(1) { left: 12%; top: 26%; }
+    .visual-nodes span:nth-child(2) { left: 42%; top: 18%; animation-delay: .25s; background: var(--violet); }
+    .visual-nodes span:nth-child(3) { right: 16%; top: 40%; animation-delay: .5s; background: var(--pink); }
+    .visual-nodes span:nth-child(4) { left: 28%; bottom: 18%; animation-delay: .75s; background: var(--green); }
+    .visual-nodes span:nth-child(5) { right: 25%; bottom: 18%; animation-delay: 1s; background: var(--amber); }
+
+    @keyframes nodePop {
+      50% { transform: scale(1.45); opacity: .66; filter: hue-rotate(90deg); }
+    }
+
+    .product-content { padding: 22px; position: relative; }
+    .tag { display: inline-flex; gap: 8px; align-items: center; color: #c9fbff; background: rgba(62,231,255,.09); border: 1px solid rgba(62,231,255,.2); border-radius: 999px; padding: 7px 10px; font-size: 11px; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }
+    h3 { margin: 16px 0 10px; font-size: 25px; letter-spacing: -.035em; }
+    .product-content p, .glass p, li { color: var(--muted); line-height: 1.65; }
+    .product-content p { margin: 0 0 18px; }
+
+    .feature-list { display: grid; gap: 9px; padding: 0; margin: 0; list-style: none; }
+    .feature-list li { display: flex; gap: 10px; font-size: 14px; }
+    .feature-list li::before { content: "✦"; color: var(--cyan); text-shadow: 0 0 12px var(--cyan); flex: 0 0 auto; }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .micro-link {
+      color: #dff9ff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.055);
+      border-radius: 999px;
+      padding: 9px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      transition: all .22s var(--ease);
+    }
+
+    .micro-link:hover {
+      border-color: rgba(62,231,255,.38);
+      background: rgba(62,231,255,.1);
+      transform: translateY(-2px);
+    }
+
+    .architecture { display: grid; grid-template-columns: .92fr 1.08fr; gap: 20px; align-items: stretch; }
+    .tabs { display: grid; gap: 12px; }
+    .tab-btn {
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      padding: 18px;
+      transition: all .25s var(--ease);
+    }
+    .tab-btn strong { display: block; font-size: 17px; margin-bottom: 6px; }
+    .tab-btn span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .tab-btn.active { border-color: rgba(62,231,255,.46); background: rgba(62,231,255,.095); box-shadow: 0 0 42px rgba(62,231,255,.08); transform: translateX(8px); }
+
+    .screen { min-height: 480px; padding: 22px; }
+    .screen-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 16px; margin-bottom: 20px; }
+    .traffic { display: flex; gap: 8px; }
+    .traffic span { width: 11px; height: 11px; border-radius: 50%; background: var(--red); box-shadow: 0 0 14px currentColor; }
+    .traffic span:nth-child(2) { background: var(--amber); }
+    .traffic span:nth-child(3) { background: var(--green); }
+    .screen-title { color: var(--muted); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .node-map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin: 24px 0; position: relative; }
+    .node-map::before {
+      content: "";
+      position: absolute;
+      left: 8%; right: 8%; top: 50%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(62,231,255,.55), rgba(155,92,255,.65), transparent);
+      box-shadow: 0 0 18px rgba(62,231,255,.4);
+    }
+    .node {
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 850;
+      color: #eafcff;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.16), rgba(62,231,255,.08));
+      border: 1px solid rgba(62,231,255,.22);
+      box-shadow: 0 12px 35px rgba(0,0,0,.28), 0 0 32px rgba(62,231,255,.09);
+      animation: nodeFloat 4s ease-in-out infinite;
+    }
+    .node:nth-child(2n) { animation-delay: .4s; }
+    .node:nth-child(3n) { animation-delay: .8s; }
+    @keyframes nodeFloat { 50% { transform: translateY(-8px); } }
+
+    .screen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .metric span { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    .metric strong { display: block; margin-top: 8px; font-size: 30px; letter-spacing: -.04em; }
+
+    .subgraph-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 13px;
+      margin-top: 24px;
+    }
+
+    .chain-card {
+      padding: 17px;
+      min-height: 160px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 35% 18%, rgba(62,231,255,.16), transparent 38%),
+        rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.11);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chain-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -30% 0;
+      height: 58px;
+      background: linear-gradient(90deg, transparent, rgba(62,231,255,.18), transparent);
+      animation: shimmer 3.6s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-35%); }
+      100% { transform: translateX(35%); }
+    }
+
+    .chain-card strong { display: block; font-size: 17px; margin-bottom: 8px; }
+    .chain-card span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+
+    .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: center; }
+
+    .no-image-panel {
+      min-height: 440px;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(62,231,255,.2), transparent 24%),
+        radial-gradient(circle at 80% 20%, rgba(255,79,216,.16), transparent 28%),
+        linear-gradient(135deg, rgba(10,14,38,.8), rgba(5,7,18,.92));
+    }
+
+    .no-image-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black, transparent 75%);
+    }
+
+    .api-card {
+      position: absolute;
+      width: min(420px, calc(100% - 48px));
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(5,8,20,.72);
+      border: 1px solid rgba(62,231,255,.24);
+      box-shadow: 0 26px 90px rgba(0,0,0,.52), 0 0 55px rgba(62,231,255,.14), inset 0 1px 0 rgba(255,255,255,.1);
+      backdrop-filter: blur(18px);
+    }
+
+    .api-card code {
+      display: block;
+      margin: 14px 0;
+      padding: 14px;
+      border-radius: 16px;
+      color: #c7fbff;
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.1);
+      font-size: 12px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+
+    .api-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .api-flow span {
+      padding: 10px 8px;
+      text-align: center;
+      border-radius: 14px;
+      color: #dce6ff;
+      font-size: 11px;
+      font-weight: 850;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .copy-panel { padding: 30px; }
+    .copy-panel h3 { font-size: 34px; margin: 0 0 14px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0; }
+    .chips span { color: #dce6ff; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.055); border-radius: 999px; padding: 8px 10px; font-size: 12px; }
+
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .flow-step { padding: 19px; min-height: 190px; }
+    .step-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(62,231,255,.18), rgba(155,92,255,.24));
+      border: 1px solid rgba(255,255,255,.12);
+      color: #c9fbff;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 70px 34px;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(62,231,255,.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(255,79,216,.15), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta h2 { max-width: 780px; margin: 0 auto 18px; }
+    .cta p { color: var(--muted); max-width: 720px; margin: 0 auto 28px; line-height: 1.7; }
+    .footer { padding: 30px 24px 46px; color: var(--faint); font-size: 13px; text-align: center; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .12s; }
+    .delay-2 { transition-delay: .24s; }
+    .delay-3 { transition-delay: .36s; }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-wrap, .section-head, .architecture, .split { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 460px; }
+      .grid-3, .flow, .subgraph-grid { grid-template-columns: 1fr; }
+      .screen-grid { grid-template-columns: 1fr; }
+      .node-map { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 125px; }
+      .nav { top: 10px; width: calc(100vw - 18px); }
+      .pill { display: none; }
+      h1 { font-size: 48px; }
+      .hero-card { inset: 0; transform: none; animation: none; }
+      .hud { left: 14px; right: 14px; width: auto; }
+      .section { padding: 68px 18px; }
+      .bar { grid-template-columns: 80px 1fr 34px; }
+      .api-flow { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
   <canvas id="particles"></canvas>
+  <div class="progress" id="progress"></div>
+
   <div class="site">
     <nav class="nav">
-      <div class="brand"><span class="logo"></span> DeFi Risk Stack</div>
-      <div class="navlinks">
-        <a href="#products">Products</a><a href="#links">Live Links</a><a href="#subgraphs">Subgraphs</a><a href="#architecture">Architecture</a><a href="#ampersend">Ampersend Fit</a><a href="#next">Next Steps</a>
+      <div class="brand"><span class="brand-mark"></span><span>DeFi Risk Infrastructure</span></div>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#subgraphs">Subgraphs</a>
+        <a href="#ampersend">Ampersend Fit</a>
       </div>
+      <span class="pill"><span class="dot"></span>No external images or secrets</span>
     </nav>
 
-    <header class="hero">
-      <div>
-        <div class="eyebrow"><span class="pulse-dot"></span> Product overview for Ampersend</div>
-        <h1>DeFi risk intelligence built as <span class="gradient-text">paid API infrastructure.</span></h1>
-        <p class="lead">A concise overview of the products I am building: an Ampersend/x402 monetization use case, DeFi Risk Monitor, and custom multi-chain subgraphs powering live risk analytics.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#products">Explore products</a>
-          <a class="btn" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noreferrer">Open DeFi Risk Monitor</a>
-          <a class="btn warn" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test" target="_blank" rel="noreferrer">View x402 protected response</a>
+    <header class="hero" id="top">
+      <div class="hero-wrap">
+        <div class="hero-copy reveal visible">
+          <div class="eyebrow">Product showcase for Pranav / Ampersend</div>
+          <h1><span class="gradient-text">DeFi risk intelligence</span><br />built as API infrastructure.</h1>
+          <p>
+            A concise overview of what I am building: DeFi Risk Monitor, custom multi-chain subgraphs,
+            and an Ampersend/x402 use case for turning premium DeFi risk data into protected API access.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#products">Explore products</a>
+            <a class="btn secondary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noopener">Open DeFi Risk Monitor</a>
+          </div>
+          <div class="mini-stack">
+            <span>Node.js / Express</span><span>Railway</span><span>Supabase</span><span>Subgraphs</span><span>Ethereum / L2s</span><span>x402 exploration</span>
+          </div>
         </div>
-      </div>
-      <div class="hero-panel" aria-label="Animated DeFi risk dashboard illustration">
-        <div class="terminal">
-          <div class="terminal-bar"><span>risk-engine.preview</span><div class="lights"><span></span><span></span><span></span></div></div>
-          <div class="holo-stack">
-            <div class="node-grid"><div class="chain-node">Ethereum</div><div class="chain-node">Arbitrum</div><div class="chain-node">Base</div><div class="chain-node">Optimism</div><div class="chain-node">Polygon</div></div>
-            <div class="risk-gauge"><div class="gauge"></div><div class="bars"><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div><p style="color:var(--muted);line-height:1.55;margin:4px 0 0">Subgraphs normalize lending positions → backend aggregates risk → dashboard/API exposes intelligence.</p></div></div>
+
+        <div class="hero-visual reveal delay-1 visible">
+          <div class="orbital"></div>
+          <div class="hero-card">
+            <div class="orbit-system">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+              <div class="core"></div>
+              <div class="satellite s1">RISK</div>
+              <div class="satellite s2">AAVE</div>
+              <div class="satellite s3">BASE</div>
+              <div class="satellite s4">x402</div>
+              <div class="satellite s5">API</div>
+            </div>
+          </div>
+          <div class="hud">
+            <div class="hud-top"><span>LIVE PRODUCT MAP</span><span>v0.2</span></div>
+            <div class="bars">
+              <div class="bar"><span>Risk data</span><div class="track"><div class="fill" style="--w:.92"></div></div><strong>92%</strong></div>
+              <div class="bar"><span>API access</span><div class="track"><div class="fill" style="--w:.78"></div></div><strong>78%</strong></div>
+              <div class="bar"><span>x402 fit</span><div class="track"><div class="fill" style="--w:.68"></div></div><strong>68%</strong></div>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
-    <section id="products" class="reveal">
-      <div class="section-head">
-        <div><div class="kicker">Product stack</div><h2>From raw DeFi data to monetizable intelligence.</h2></div>
-        <p>The ecosystem is designed as a layered stack: subgraphs collect and normalize protocol-level data, DeFi Risk Monitor turns it into dashboards and risk signals, and Ampersend could unlock programmable paid access to selected endpoints.</p>
-      </div>
-      <div class="grid">
-        <article class="card"><div class="icon">↯</div><h3>Paid API access layer</h3><p>A potential monetization layer for protected endpoints, wallet-based access and x402-style payments.</p><ul><li>Protect high-value DeFi API endpoints</li><li>Charge per request, usage tier or access window</li><li>Explore agent-to-API payment workflows</li></ul><div class="card-actions" style="margin-top:22px"><a class="btn" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test" target="_blank" rel="noreferrer">View protected x402 response</a></div></article>
-        <article class="card"><div class="icon">◈</div><h3>DeFi Risk Monitor</h3><p>A risk analytics dashboard for wallet health, liquidation exposure, systemic risk and cascade simulations.</p><ul><li>24-hour free trial + subscription access</li><li>Systemic Risk Index and price-drop scenarios</li><li>Wallet rating and liquidation-risk monitoring</li></ul><div class="card-actions" style="margin-top:22px"><a class="btn primary" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noreferrer">Open live dashboard</a><a class="btn" href="https://web-production-387cf.up.railway.app/api/auth/status" target="_blank" rel="noreferrer">Check auth status</a></div></article>
-        <article class="card"><div class="icon">▧</div><h3>Custom subgraphs</h3><p>Protocol-specific data pipelines designed to index Aave-style positions, health factors and liquidation events across chains.</p><ul><li>Ethereum, Arbitrum, Base, Optimism and Polygon</li><li>Normalized positions, alerts and liquidation calls</li><li>Reusable infrastructure for future APIs</li></ul><div class="card-actions" style="margin-top:22px"><a class="btn" href="#subgraphs">View created subgraphs</a><a class="btn" href="https://web-production-387cf.up.railway.app/api/stats" target="_blank" rel="noreferrer">Open stats API</a></div></article>
-      </div>
-    </section>
-
-    <section id="links" class="reveal">
-      <div class="section-head">
-        <div><div class="kicker">Live links</div><h2>Direct links Pranav can actually open.</h2></div>
-        <p>This version exposes the live DeFi Risk Monitor URL, the Ampersend-protected wallet behavior score endpoint, and the subgraph-backed backend endpoints that sit behind the dashboard.</p>
-      </div>
-      <div class="grid two">
-        <div class="links-grid">
-          <a class="link-card" href="https://web-production-387cf.up.railway.app" target="_blank" rel="noreferrer"><span><strong>DeFi Risk Monitor</strong><small>Production dashboard for wallet risk, DRI, cascade risk analysis, ratings, reports and paid access after trial.</small></span><span class="mini-btn">Open app</span></a>
-          <a class="link-card" href="https://web-production-387cf.up.railway.app/api/auth/status" target="_blank" rel="noreferrer"><span><strong>Access status endpoint</strong><small>Shows trial/subscription status for the current browser session.</small></span><span class="mini-btn">Open JSON</span></a>
-          <a class="link-card" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test" target="_blank" rel="noreferrer"><span><strong>Wallet Behavior Score API</strong><small>Protected Ampersend/x402 endpoint. Direct browser access should show “X-PAYMENT header is required”.</small></span><span class="mini-btn">View protected response</span></a>
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Three connected products</div>
+            <h2>From raw DeFi data to monetizable intelligence.</h2>
+          </div>
+          <p>
+            The ecosystem is designed as a layered stack: subgraphs collect and normalize protocol-level data,
+            DeFi Risk Monitor turns it into dashboard intelligence, and Ampersend could potentially unlock
+            paid API access for developers, bots, funds or agents.
+          </p>
         </div>
-        <div class="links-grid">
-          <a class="link-card" href="https://web-production-387cf.up.railway.app/api/stats" target="_blank" rel="noreferrer"><span><strong>/api/stats</strong><small>Aggregated protocol/network risk stats from the subgraph layer.</small></span><span class="mini-btn">Open</span></a>
-          <a class="link-card" href="https://web-production-387cf.up.railway.app/api/dri" target="_blank" rel="noreferrer"><span><strong>/api/dri</strong><small>Systemic DeFi Risk Index endpoint used by the dashboard.</small></span><span class="mini-btn">Open</span></a>
-          <a class="link-card" href="https://web-production-387cf.up.railway.app/api/cascade" target="_blank" rel="noreferrer"><span><strong>/api/cascade</strong><small>Price-drop impact analysis endpoint for liquidation-risk scenarios.</small></span><span class="mini-btn">Open</span></a>
+
+        <div class="grid-3">
+          <article class="product-card reveal delay-1 tilt">
+            <div class="product-visual">
+              <div class="pulse-lines"><span></span><span></span><span></span></div>
+              <div class="visual-code"><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="product-content">
+              <span class="tag">Ampersend use case</span>
+              <h3>Paid API access layer</h3>
+              <p>A potential monetization layer for protected endpoints, wallet-based access and x402-style payments.</p>
+              <ul class="feature-list">
+                <li>Protect high-value DeFi API endpoints</li>
+                <li>Test per-request, usage tier or access-window pricing</li>
+                <li>Explore agent-to-API payment workflows</li>
+              </ul>
+              <div class="link-row">
+                <a class="micro-link" target="_blank" rel="noopener" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test">View protected x402 response</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-2 tilt">
+            <div class="product-visual">
+              <div class="visual-nodes"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="pulse-lines"><span></span><span></span><span></span></div>
+            </div>
+            <div class="product-content">
+              <span class="tag">Live dashboard</span>
+              <h3>DeFi Risk Monitor</h3>
+              <p>A risk analytics dashboard for wallet health, liquidation exposure, systemic risk and cascade simulations.</p>
+              <ul class="feature-list">
+                <li>Wallet rating and liquidation-risk monitoring</li>
+                <li>Systemic Risk Index and price-drop scenarios</li>
+                <li>Designed to become a premium data layer</li>
+              </ul>
+              <div class="link-row">
+                <a class="micro-link" target="_blank" rel="noopener" href="https://web-production-387cf.up.railway.app">Open DeFi Risk Monitor</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal delay-3 tilt">
+            <div class="product-visual">
+              <div class="pulse-lines"><span></span><span></span><span></span></div>
+              <div class="visual-nodes"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="product-content">
+              <span class="tag">Data foundation</span>
+              <h3>Custom subgraphs</h3>
+              <p>Protocol-specific data pipelines designed to index Aave-style positions, health factors and liquidation events across chains.</p>
+              <ul class="feature-list">
+                <li>Ethereum, Arbitrum, Base, Optimism and Polygon</li>
+                <li>Normalized positions, alerts and liquidation calls</li>
+                <li>Reusable infrastructure for future paid APIs</li>
+              </ul>
+              <div class="link-row">
+                <a class="micro-link" href="#subgraphs">View subgraph modules</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="subgraphs" class="reveal">
-      <div class="section-head">
-        <div><div class="kicker">Created subgraphs</div><h2>The custom multi-chain indexing layer.</h2></div>
-        <p>These are the subgraph modules created for the system. Each one feeds positions, health factors, risk alerts and liquidation events into the same normalized risk engine.</p>
-      </div>
-      <div class="subgraph-grid">
-        <div class="subgraph"><span class="badge">Live module</span><h3>Ethereum Risk Subgraph</h3><p>Indexes mainnet lending positions and risk data for high-value wallet monitoring.</p></div>
-        <div class="subgraph"><span class="badge">Live module</span><h3>Arbitrum Risk Subgraph</h3><p>Indexes L2 borrowing activity and liquidation risk signals for Arbitrum users.</p></div>
-        <div class="subgraph"><span class="badge">Live module</span><h3>Base Risk Subgraph</h3><p>Tracks Base lending risk and wallet-level health factors as part of the multi-chain engine.</p></div>
-        <div class="subgraph"><span class="badge">Live module</span><h3>Optimism Risk Subgraph</h3><p>Captures Optimism lending positions and contributes to systemic risk aggregation.</p></div>
-        <div class="subgraph"><span class="badge">Live module</span><h3>Polygon Risk Subgraph</h3><p>Indexes Polygon positions and liquidations for low-cost, high-frequency DeFi risk monitoring.</p></div>
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Architecture</div>
+            <h2>How the system fits together.</h2>
+          </div>
+          <p>
+            The key idea is to turn fragmented on-chain lending data into a structured, monetizable risk layer.
+            The frontend is only the visible surface; the real product is the API and indexed data pipeline behind it.
+          </p>
+        </div>
+
+        <div class="architecture">
+          <div class="tabs reveal delay-1">
+            <button class="tab-btn active" data-tab="subgraphs"><strong>1. Multi-chain subgraphs</strong><span>Index protocol positions, risk alerts and liquidation events.</span></button>
+            <button class="tab-btn" data-tab="risk"><strong>2. Risk engine</strong><span>Normalize health factors, derive risk levels and aggregate systemic metrics.</span></button>
+            <button class="tab-btn" data-tab="monitor"><strong>3. DeFi Risk Monitor</strong><span>Render dashboards, wallet ratings and cascade simulation views.</span></button>
+            <button class="tab-btn" data-tab="amp"><strong>4. Ampersend layer</strong><span>Potentially monetize endpoints through paid access, x402 and usage-based flows.</span></button>
+          </div>
+
+          <div class="glass screen reveal delay-2">
+            <div class="screen-header">
+              <div class="traffic"><span></span><span></span><span></span></div>
+              <div class="screen-title" id="screenTitle">Subgraph pipeline</div>
+            </div>
+            <div class="node-map" id="nodeMap"></div>
+            <div class="screen-grid" id="metricsGrid"></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="architecture" class="reveal">
-      <div class="section-head"><div><div class="kicker">Architecture</div><h2>How the system fits together.</h2></div><p>The key idea is to turn fragmented on-chain lending data into a structured, monetizable risk layer. The frontend is only the visible surface; the real product is the data pipeline plus analysis layer behind it.</p></div>
-      <div class="architecture">
-        <div class="flow-card"><div class="flow-num">01 · Index</div><h3>Custom subgraphs</h3><p>Each chain is indexed separately so positions, health factors, alerts and liquidations can be queried quickly instead of reading raw blockchain events every time.</p></div>
-        <div class="flow-card"><div class="flow-num">02 · Analyze</div><h3>Risk engine</h3><p>The backend aggregates subgraph data into wallet-level risk, systemic risk, cascade scenarios and liquidation exposure indicators.</p></div>
-        <div class="flow-card"><div class="flow-num">03 · Monetize</div><h3>Dashboard + paid APIs</h3><p>Stripe supports SaaS subscriptions. Ampersend could support API-level monetization for premium endpoints and agent workflows.</p></div>
+    <section class="section" id="subgraphs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Subgraph layer</div>
+            <h2>The data modules already created.</h2>
+          </div>
+          <p>
+            These modules are the data foundation. They are designed to index lending positions, health factors,
+            risk alerts and liquidation events across multiple networks, then feed the dashboard and future API endpoints.
+          </p>
+        </div>
+
+        <div class="subgraph-grid reveal delay-1">
+          <div class="chain-card"><strong>Ethereum</strong><span>Core market data, positions, alerts and liquidation-related events.</span></div>
+          <div class="chain-card"><strong>Arbitrum</strong><span>L2 risk coverage for lower-cost, active DeFi lending environments.</span></div>
+          <div class="chain-card"><strong>Base</strong><span>Relevant for Ampersend/x402 experimentation and Base-native payment flows.</span></div>
+          <div class="chain-card"><strong>Optimism</strong><span>Additional L2 coverage for broader systemic risk mapping.</span></div>
+          <div class="chain-card"><strong>Polygon</strong><span>High-activity network coverage for liquidation and wallet-risk monitoring.</span></div>
+        </div>
       </div>
     </section>
 
-    <section id="ampersend" class="reveal">
-      <div class="section-head"><div><div class="kicker">Ampersend fit</div><h2>From SaaS subscription to programmable paid API access.</h2></div><p>Stripe works well for dashboard subscriptions. Ampersend could become interesting if the product evolves into a paid API where developers, funds, bots or agents pay for precise data endpoints instead of only accessing a web dashboard.</p></div>
-      <div class="ampersend-panel">
-        <div class="codebox"><span class="dim">// Browser access to the protected endpoint returns:</span><br>{<br>&nbsp;&nbsp;<span class="cyan">"x402Version"</span>: <span class="amber">1</span>,<br>&nbsp;&nbsp;<span class="cyan">"error"</span>: <span class="green">"X-PAYMENT header is required"</span>,<br>&nbsp;&nbsp;<span class="cyan">"accepts"</span>: [{<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cyan">"network"</span>: <span class="green">"base"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cyan">"asset"</span>: <span class="green">"USDC"</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cyan">"resource"</span>: <span class="green">"wallet-behavior-score-test"</span><br>&nbsp;&nbsp;}]<br>}<br><br><span class="dim">// Interpretation:</span><br><span class="green">Expected behavior.</span> The API is protected and requires a payment header before returning premium data.</div>
-        <div class="card"><div class="icon">◇</div><h3>What I want to learn from Ampersend</h3><p>The current product proves that DeFi data can be collected and presented. The next question is whether selected outputs can become programmable paid data products.</p><div class="pill-row"><span class="pill">Protected APIs</span><span class="pill">x402 exploration</span><span class="pill">Per-request pricing</span><span class="pill">Wallet-based access</span><span class="pill">Agent workflows</span></div><ul><li>Can a wallet risk score become a paid API call?</li><li>Can liquidation-risk data be sold to bots, funds or agents?</li><li>Can Ampersend handle payment verification before serving data?</li><li>What is the simplest production-ready Node/Express integration?</li></ul><div class="card-actions" style="margin-top:22px"><a class="btn primary" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test" target="_blank" rel="noreferrer">View protected x402 response</a><a class="btn" href="#links">View all live links</a></div></div>
+    <section class="section" id="ampersend">
+      <div class="container">
+        <div class="split">
+          <div class="no-image-panel reveal">
+            <div class="api-card">
+              <div class="kicker">x402 protected resource</div>
+              <h3 style="margin-top:0;">Payment-required API response</h3>
+              <p>
+                Opening the protected Ampersend endpoint directly returns the expected
+                <strong>X-PAYMENT header is required</strong> response.
+              </p>
+              <code>{ "x402Version": 1, "error": "X-PAYMENT header is required", "network": "base", "asset": "USDC" }</code>
+              <div class="api-flow"><span>Request</span><span>Payment proof</span><span>Data access</span></div>
+            </div>
+          </div>
+
+          <div class="glass copy-panel reveal delay-1">
+            <div class="kicker">Why Ampersend could matter</div>
+            <h3>From dashboard product to programmable paid API access.</h3>
+            <p>
+              DeFi Risk Monitor can work as a dashboard, but the stronger long-term idea may be API monetization:
+              developers, bots, funds or agents paying for specific risk signals instead of only using a web interface.
+            </p>
+            <div class="chips">
+              <span>Protected APIs</span><span>x402 exploration</span><span>Per-request pricing</span><span>Wallet-based access</span><span>Agent workflows</span>
+            </div>
+            <ul class="feature-list">
+              <li>Use case: charge for wallet-risk scores or liquidation-risk data.</li>
+              <li>Use case: expose premium DeFi endpoints to agents and developers.</li>
+              <li>Use case: test usage-based pricing before committing to a bigger commercial model.</li>
+            </ul>
+            <div class="link-row">
+              <a class="micro-link" target="_blank" rel="noopener" href="https://proxy.ampersend.ai/wallet-behavior-score/wallet-behavior-score-2/wallet-behavior-score-test">Open protected response</a>
+              <a class="micro-link" target="_blank" rel="noopener" href="https://web-production-387cf.up.railway.app">Open DeFi Risk Monitor</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="next" class="reveal">
-      <div class="section-head"><div><div class="kicker">Next experiment</div><h2>A simple path to test product fit.</h2></div><p>The cleanest first experiment is not a full migration. It is one protected endpoint with clear pricing, logging and access verification.</p></div>
-      <div class="grid">
-        <div class="card"><div class="icon">1</div><h3>Pick one endpoint</h3><p>Example: wallet risk score, liquidation exposure, or cascade risk summary.</p></div>
-        <div class="card"><div class="icon">2</div><h3>Protect access</h3><p>Use Ampersend to verify payment before serving premium data.</p></div>
-        <div class="card"><div class="icon">3</div><h3>Measure demand</h3><p>Track requests, failed access attempts, usage patterns and revenue signals.</p></div>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Implementation flow</div>
+            <h2>A simple path to test product fit.</h2>
+          </div>
+          <p>
+            The cleanest first experiment is not a full migration. It is one protected endpoint with clear pricing,
+            logging and access verification.
+          </p>
+        </div>
+
+        <div class="flow">
+          <div class="glass flow-step reveal delay-1"><div class="step-num">01</div><h3>Pick one endpoint</h3><p>Example: wallet risk score, liquidation exposure, or cascade risk summary.</p></div>
+          <div class="glass flow-step reveal delay-2"><div class="step-num">02</div><h3>Protect access</h3><p>Use Ampersend to verify payment before serving premium data.</p></div>
+          <div class="glass flow-step reveal delay-3"><div class="step-num">03</div><h3>Measure demand</h3><p>Track requests, failed access attempts, usage patterns and revenue signals.</p></div>
+          <div class="glass flow-step reveal delay-3"><div class="step-num">04</div><h3>Scale the model</h3><p>Expand from one paid endpoint to a full API plan if the signal is strong.</p></div>
+        </div>
       </div>
-      <div class="copybox"><p><strong>30-second summary:</strong> I built a DeFi risk stack: custom subgraphs index lending positions across chains, DeFi Risk Monitor turns that into wallet risk, DRI and cascade analysis, and Ampersend could help monetize selected risk endpoints as protected paid APIs.</p><button class="btn" id="copySummary">Copy summary</button></div>
     </section>
 
-    <footer class="footer"><div>Built for a product-fit conversation with Ampersend.</div><div>No secrets, no private keys, no hidden API keys in this page.</div></footer>
+    <section class="section" id="next">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="kicker">Discussion goal</div>
+          <h2>Find the simplest Ampersend integration that creates real value.</h2>
+          <p>
+            The main question for the call: should Ampersend be used as a paid API layer for DeFi Risk Monitor data,
+            and what would the fastest production-grade Node.js/Express integration look like?
+          </p>
+          <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+            <a class="btn" href="mailto:rubenginto@gmail.com?subject=DeFi%20Risk%20Infrastructure%20%2F%20Ampersend">Contact Iban</a>
+            <button class="btn secondary" id="copySummary">Copy 30-sec summary</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Built as a product-fit showcase for Ampersend. Single-file HTML. No external images, no API keys and no private infrastructure secrets included.
+    </footer>
   </div>
 
   <script>
-    const progress=document.getElementById('progress');function updateProgress(){const h=document.documentElement;const pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;progress.style.width=pct+'%'}document.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
-    const reveals=[...document.querySelectorAll('.reveal')];const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.16});reveals.forEach(el=>io.observe(el));
-    const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');let w,h,points=[];function resize(){w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';points=Array.from({length:Math.min(86,Math.floor(innerWidth/16))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22*devicePixelRatio,vy:(Math.random()-.5)*.22*devicePixelRatio,r:(Math.random()*1.8+1)*devicePixelRatio}))}addEventListener('resize',resize);resize();function draw(){ctx.clearRect(0,0,w,h);for(const p of points){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(66,232,255,.55)';ctx.fill()}for(let i=0;i<points.length;i++){for(let j=i+1;j<points.length;j++){const a=points[i],b=points[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);if(d<160*devicePixelRatio){ctx.globalAlpha=(1-d/(160*devicePixelRatio))*.28;ctx.strokeStyle='rgba(107,124,255,.8)';ctx.lineWidth=1*devicePixelRatio;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.globalAlpha=1}}}requestAnimationFrame(draw)}draw();
-    document.getElementById('copySummary').addEventListener('click',async()=>{const text='I built a DeFi risk stack: custom subgraphs index lending positions across Ethereum, Arbitrum, Base, Optimism and Polygon; DeFi Risk Monitor turns that into wallet risk, systemic risk index and cascade analysis; and Ampersend could help monetize selected risk endpoints as protected paid APIs or x402 resources.';try{await navigator.clipboard.writeText(text);const b=document.getElementById('copySummary');const old=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=old,1400)}catch(e){alert(text)}});
+    const progress = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = ((scrollY / h) * 100) + '%';
+    });
+
+    const reveal = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+
+    document.querySelectorAll('.tilt, .glass').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        card.style.setProperty('--mx', (x / r.width * 100) + '%');
+        card.style.setProperty('--my', (y / r.height * 100) + '%');
+      });
+    });
+
+    const data = {
+      subgraphs: {
+        title: 'Subgraph pipeline',
+        nodes: ['Ethereum', 'Arbitrum', 'Base', 'Optimism', 'Polygon'],
+        metrics: [
+          ['Indexed networks', '5'], ['Entities', 'Positions / Alerts'], ['Purpose', 'Risk data'], ['Output', 'Normalized API']
+        ]
+      },
+      risk: {
+        title: 'Risk computation layer',
+        nodes: ['Positions', 'Health factor', 'Risk level', 'Cascade sim', 'Score'],
+        metrics: [
+          ['Critical', 'HF < 1.0'], ['Danger', 'HF < 1.1'], ['Warning', 'HF < 1.25'], ['DRI', '0–100']
+        ]
+      },
+      monitor: {
+        title: 'DeFi Risk Monitor app',
+        nodes: ['Trial', 'Dashboard', 'Wallets', 'Reports', 'Upgrade'],
+        metrics: [
+          ['Access model', '24h trial'], ['Storage', 'Supabase'], ['Backend', 'Express'], ['Deploy', 'Railway']
+        ]
+      },
+      amp: {
+        title: 'Ampersend monetization layer',
+        nodes: ['Request', 'Payment', 'Verify', 'Serve data', 'Measure'],
+        metrics: [
+          ['Model', 'Paid endpoint'], ['Explore', 'x402'], ['Buyer', 'Agent / dev'], ['Goal', 'API revenue']
+        ]
+      }
+    };
+
+    const nodeMap = document.getElementById('nodeMap');
+    const metricsGrid = document.getElementById('metricsGrid');
+    const screenTitle = document.getElementById('screenTitle');
+
+    function renderTab(key) {
+      const item = data[key];
+      screenTitle.textContent = item.title;
+      nodeMap.innerHTML = item.nodes.map(n => `<div class="node">${n}</div>`).join('');
+      metricsGrid.innerHTML = item.metrics.map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong></div>`).join('');
+    }
+    renderTab('subgraphs');
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTab(btn.dataset.tab);
+      });
+    });
+
+    document.getElementById('copySummary').addEventListener('click', async () => {
+      const text = 'I am building DeFi risk intelligence infrastructure: custom multi-chain subgraphs, a DeFi Risk Monitor dashboard for wallet and systemic risk, and an Ampersend use case for paid API access / x402-style monetization.';
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copySummary');
+      btn.textContent = 'Copied ✓';
+      setTimeout(() => btn.textContent = 'Copy 30-sec summary', 1600);
+    });
+
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = innerWidth * devicePixelRatio;
+      canvas.height = innerHeight * devicePixelRatio;
+      canvas.style.width = innerWidth + 'px';
+      canvas.style.height = innerHeight + 'px';
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      particles = Array.from({ length: Math.min(90, Math.floor(innerWidth / 18)) }, () => ({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        vx: (Math.random() - .5) * .28,
+        vy: (Math.random() - .5) * .28,
+        r: Math.random() * 1.8 + .6
+      }));
+    }
+    resize();
+    addEventListener('resize', resize);
+
+    function animate() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      particles.forEach((p, i) => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > innerWidth) p.vx *= -1;
+        if (p.y < 0 || p.y > innerHeight) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(122, 210, 255, .72)';
+        ctx.fill();
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const d = Math.hypot(dx, dy);
+          if (d < 120) {
+            ctx.strokeStyle = `rgba(122, 210, 255, ${0.16 * (1 - d / 120)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
 </body>
 </html>
